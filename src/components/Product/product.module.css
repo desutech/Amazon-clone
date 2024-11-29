@@ -11,11 +11,11 @@
 .card_container:hover .button{
   display: block;
 }
-.card_container:hover .price{
+/* .card_container:hover .price{
 display: none;
-}
+} */
 .card_container img{
-  padding: 10px;
+  /* padding: 10px; */
   width: 90%;
   height: 200px;
   object-fit: contain;
@@ -38,6 +38,7 @@ display: none;
 }
 .button:hover{
   background-color:var(--primary-shade);
+  padding: auto;
 }
 .rating{
   display: flex;
@@ -58,4 +59,41 @@ display: none;
 .title{
   font-size: 12px;
   font-weight: 400;
+}
+
+.product_flexd{
+  box-shadow: none;
+  height: auto;
+  display: flex;
+  gap: 50px;
+  width: 100%;
+
+}
+.product_flexd h3{
+  padding: 20px 0;
+}
+.product_flexd .button{
+  display: flex;
+  /* position: static; */
+  justify-content: center;
+  width: 150px;
+  margin-left: 273px;
+  margin-bottom: 100px;
+  /* margin-left: 400px;
+  margin-bottom: 150px; */
+}
+.product_flexd{
+  height: 50vh;
+}
+.product_flexd img{
+width: 220px;
+height: 300px;
+}
+
+@media screen and (max-width: 768px){
+  .product_flexd{
+    display: flex;
+    flex-direction: column;
+  }
+ 
 }

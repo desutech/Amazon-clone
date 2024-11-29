@@ -5,9 +5,11 @@ import MenuIcon from '@mui/icons-material/MenuOutlined';
 const LowerHeader = () => {
   return (
     <div className={classes.lower_container}>
-      <ul>
+      <ul className={classes.all}>
         <MenuIcon />
         <li><p>All</p></li>
+      </ul>
+      <ul className={classes.all_list}>
         <li>Today's Deals</li>
         <li>Costumer Service</li>
         <li>Registry</li>

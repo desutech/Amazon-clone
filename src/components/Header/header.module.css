@@ -58,7 +58,7 @@
 } 
 .deliver_container span :first-child{
   padding-top: 14px;
-  font-size: 20px;
+  font-size:32px;
   font-weight: bold;
 }
 .deliver p {
@@ -85,7 +85,7 @@
 .search input{
   outline: 1px solid white;
   width: 100%;
-  margin-right: -2px;
+  /* margin-right: -2px; */
 }
 .search select{
 outline: none;
@@ -93,9 +93,11 @@ background-color: #c3c2c2;
 color: #00000075;
 }
 .search svg{
-  padding: 5px;
+ padding: 5px;
   background: #941a63;
   color: #ffffff;
+width: 33px;
+height: auto;
 }
 .search svg :hover{
   background-color: #d49644;
@@ -107,6 +109,7 @@ color: #00000075;
   display: flex;
   align-items: center;
   /* padding: 0.5px; */
+  /* margin-right: 5px; */
 }
 .flag_en:hover{
   outline: 1px solid #fff;
@@ -132,11 +135,10 @@ color: #00000075;
 .order{
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
-
+  justify-content: space-between;
 }
 .language{
-  width:28px;
+  width:45px;
   display: flex;
   padding: 10px;
 }
@@ -152,22 +154,23 @@ color: #00000075;
   display: flex;
 }
 .en{
-  padding-right: 15px;
+  padding-right: 12px;
   font-size: 10px;
 }
 .sign_acount{
   display: flex;
   flex-direction: column;
-margin: 5px;
-padding: 3px;
+/* margin: 5px; */
+padding: 2px;
+
 }
 .sign_acount p{
   font-size: 10px;
   padding: 2px;
-  gap: 5px;
+  /* gap: 5px; */
 }
 .sign_acount span{
-  font-size: 14px;
+  font-size: 12px;
   padding-right: 0.5rem;
 font-weight: bold;
 }
@@ -191,16 +194,21 @@ font-weight: bold;
   outline: 1px solid #fff;
 }
  .cart{
-  margin-left: 5px;
   margin-top: 5px;
-padding-top: 1px;
+padding: 3px;
 position: relative;
-
+margin-left: 8px;
+display: flex;
  }
+ .cart p{
+padding-top: 18px;
+font-size: 12px;
+font-weight: bold;
+}
  .cart span{
   position: absolute;
-  top: -6px;
-  left: 14px;
+  top: -5px;
+  left: 16px;
   color: #febd69;
   font-weight: bold;
   font-size: 22px;
@@ -208,7 +216,7 @@ position: relative;
  }
  .cart svg{
   font-size: 30px;
-  padding: 5px;
+  /* padding: 5px; */
  }
 .cart:hover{
   outline: 1px solid #fff;
@@ -219,7 +227,7 @@ position: relative;
 .lower_container{
   background-color: #085749;
   color: white;
-  font-size: 11px;
+  font-size: 8px;
   display: flex;
   gap: 10px;
   cursor: pointer;
@@ -228,6 +236,7 @@ position: relative;
   display: flex;
   list-style: none;
   gap: 10px;
+align-self: center;
 }
 .lower_container ul li{
   padding:5px;
@@ -240,7 +249,7 @@ position: relative;
 }
 
 .lower_container svg{
-  padding-top: 3px;
+  padding-top: 1px;
   font-size: 21px;
   margin-left: 3px;
 }

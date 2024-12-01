@@ -6,17 +6,16 @@ import CartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import LowerHeader from './LowerHeader';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import { DataContecxt } from "../DataProvider/DataProvider";
-
-
-
+import { DataContext } from "../DataProvider/DataProvider";
+import { auth } from '../../Utillty/firebase'
+// import { RiArrowDropDownFill } from "react-icons/ri";
 
 
 
 
 const header = () => {
 
-  const [{ basket }, dispatch] = useContext(DataContecxt);
+  const [{ user, basket }, dispatch] = useContext(DataContext);
   const totalItem = basket?.reduce((amount, item) => {
     return item.amount + amount
   }, 0)
@@ -47,7 +46,7 @@ const header = () => {
                 <option value="">All</option>
               </select>
               <input type="text" id='' name='' placeholder='search product' />
-              < SearchIcon />
+              < SearchIcon className={classes.searchIcon} />
             </div>
             <div className={classes.order_container}>
               <div className={classes.order}>
@@ -55,12 +54,29 @@ const header = () => {
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6-uQqytkTa4eQidSKSfsVHMMUOH755DRGYlWpukp_aD0bFKOJIC3zx6vPW9mynUGSo3o&usqp=CAU" alt="" className={classes.language} />
                   <section>
                     <option value="" className={classes.en}>EN</option>
+                    {/* <RiArrowDropDownFill className={classes.dropDown} /> */}
                   </section>
                 </div>
-                <Link to="/auth" className={classes.acount}>
+                <Link to={!user && "/auth"} className={classes.acount}>
                   <div className={classes.sign_acount}>
-                    <p>Hello sign in</p>
-                    <span>Acount & lists</span>
+                    <div>
+                      {
+                        user ? (
+                          <>
+
+                            <p>Hello {user?.email?.split("@")[0]}</p>
+                            <span onClick={() => auth.signOut()}>Sign Out</span>
+
+                          </>
+                        ) : (
+                          <>
+                            <p>Hello sign in</p>
+                            <span>Acount & lists</span>
+
+                          </>
+                        )
+                      }
+                    </div>
                   </div>
                 </Link>
                 <Link to="/orders" className={classes.returns_orders}>
@@ -69,6 +85,8 @@ const header = () => {
                 </Link>
                 <Link to='/cart' className={classes.cart}>
                   {<CartOutlinedIcon size={35} />}
+                  <p>Cart</p>
+
                   <span>{totalItem}</span>
                 </Link>
 

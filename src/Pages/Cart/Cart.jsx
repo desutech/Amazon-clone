@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import LayOut from '../../components/LayOut/LayOut'
-import { DataContecxt } from '../../components/DataProvider/DataProvider'
+import { DataContext } from '../../components/DataProvider/DataProvider'
 import ProductCart from '../../components/Product/ProductCard'
 import CurrencyFormat from '../../components/CurrencyFormat/CurrenceyFormat'
 import { Link } from 'react-router-dom'
@@ -9,7 +9,7 @@ import ArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import ArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Type } from '../../Utillty/acthion.type'
 function Cart() {
-  const [{ basket, user }, dispatch] = useContext(DataContecxt)
+  const [{ basket, user }, dispatch] = useContext(DataContext)
   const total = basket.reduce((amount, item) => {
     return item.price * item.amount + amount
   }, 0)

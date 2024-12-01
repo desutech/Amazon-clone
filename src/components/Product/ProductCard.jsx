@@ -3,13 +3,13 @@ import Rating from '@mui/material/Rating'
 import CurrencyFormat from '../CurrencyFormat/CurrenceyFormat';
 import classes from './Product.module.css'
 import { Link } from 'react-router-dom';
-import { DataContecxt } from '../DataProvider/DataProvider';
+import { DataContext } from '../DataProvider/DataProvider';
 import { Type } from '../../Utillty/acthion.type';
 
 const ProductCard = ({ product, flex, renderDesc, renderAdd }) => {
   const { image, title, id, rating, price, description } = product;
 
-  const [state, dispatch] = useContext(DataContecxt)
+  const [state, dispatch] = useContext(DataContext)
 
 
   const addToCard = () => {
@@ -31,7 +31,10 @@ const ProductCard = ({ product, flex, renderDesc, renderAdd }) => {
         {title ? (
           <h3>{title.length > 40 ? title.slice(0, 40) + "..." : title}</h3>
         ) : <p>no title</p>}
-        {renderDesc && <div style={{ maxWidth: "700px" }}>{description} </div>}
+
+        {/* {<h3>{title}</h3>} */}
+        {renderDesc && <div style={{ maxWidth: "700px" }}>{description}
+        </div>}
 
         <div className={classes.rating}>
           {/* rating */}
@@ -49,12 +52,8 @@ const ProductCard = ({ product, flex, renderDesc, renderAdd }) => {
           {/* price */}
           <CurrencyFormat amount={price} />
         </div>
-
+        <button className={classes.button} onClick={addToCard}> Add to cart</button>
       </div>
-      {
-        renderAdd && <button className={classes.button} onClick={addToCard}> Add to cart</button>
-      }
-
     </div >
   )
 }

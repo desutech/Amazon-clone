@@ -1,11 +1,11 @@
 import React, { createContext, useReducer } from "react";
 
-export const DataContecxt = createContext();
+export const DataContext = createContext();
 
 export const DataProvider = ({ children, reducer, initialState }) => {
   return (
-    <DataContecxt.Provider value={useReducer(reducer, initialState)}>
+    <DataContext.Provider value={useReducer(reducer, initialState)}>
       {children}
-    </DataContecxt.Provider>
+    </DataContext.Provider>
   );
 };

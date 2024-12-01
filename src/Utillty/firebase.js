@@ -1,20 +1,20 @@
-import firebase from "firebase/compact/app";
-//auth
+// Import the functions you need from the SDKs you need
+import firebase from "firebase/compat/app";
 import { getAuth } from 'firebase/auth'
-import 'firebase/compact/firestore'
-import 'firebase/compact/auth'
+import 'firebase/compat/firestore'
+import 'firebase/compat/auth'
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCYSYnPHR5tyJS6JJYmUW72HiiOPaa10wM",
-  authDomain: "e-clone-58050.firebaseapp.com",
-  projectId: "e-clone-58050",
-  storageBucket: "e-clone-58050.firebasestorage.app",
-  messagingSenderId: "162134486016",
-  appId: "1:162134486016:web:c19315f3ec10f4693d3ce5"
+  apiKey: "AIzaSyAKIpdonVT6EXzLtJTZu2cpTUWTrRLZsz4",
+  authDomain: "e-clone-56010.firebaseapp.com",
+  projectId: "e-clone-56010",
+  storageBucket: "e-clone-56010.firebasestorage.app",
+  messagingSenderId: "369172720937",
+  appId: "1:369172720937:web:9edf4ee2cb45a5495f5b38"
 };
 
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 
 export const auth = getAuth(app)
-export const db = app.firebase()
+export const db = app.firestore();

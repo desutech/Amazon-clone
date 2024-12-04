@@ -52,7 +52,11 @@ const ProductCard = ({ product, flex, renderDesc, renderAdd }) => {
           {/* price */}
           <CurrencyFormat amount={price} />
         </div>
-        <button className={classes.button} onClick={addToCard}> Add to cart</button>
+        {
+          renderAdd &&
+          <button className={classes.button} onClick={addToCard}> Add to cart</button>
+        }
+
       </div>
     </div >
   )

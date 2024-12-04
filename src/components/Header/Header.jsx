@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { DataContext } from "../DataProvider/DataProvider";
 import { auth } from '../../Utillty/firebase'
-// import { RiArrowDropDownFill } from "react-icons/ri";
+import { RiArrowDropDownFill } from "react-icons/ri";
 
 
 
@@ -52,9 +52,9 @@ const header = () => {
               <div className={classes.order}>
                 <div className={classes.flag_en}>
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6-uQqytkTa4eQidSKSfsVHMMUOH755DRGYlWpukp_aD0bFKOJIC3zx6vPW9mynUGSo3o&usqp=CAU" alt="" className={classes.language} />
-                  <section>
+                  <section className={classes.en_icon}>
                     <option value="" className={classes.en}>EN</option>
-                    {/* <RiArrowDropDownFill className={classes.dropDown} /> */}
+                    <RiArrowDropDownFill size={20} />
                   </section>
                 </div>
                 <Link to={!user && "/auth"} className={classes.acount}>
@@ -69,11 +69,13 @@ const header = () => {
 
                           </>
                         ) : (
-                          <>
+                          <div >
                             <p>Hello sign in</p>
-                            <span>Acount & lists</span>
-
-                          </>
+                            <div className={classes.hello_icon}>
+                              <span>Acount & lists  </span>
+                              <RiArrowDropDownFill size={20} className={classes.acount_icon} />
+                            </div>
+                          </div>
                         )
                       }
                     </div>

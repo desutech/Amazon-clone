@@ -15,6 +15,7 @@ padding: 30px;
 }
 .flex h3{
   min-width: 300px;
+  overflow: hidden;
 }
 .flex img{
   width: 80px !important;
@@ -48,4 +49,17 @@ gap: 10px;
 }
 .payment_details button:hover{
   background-color: var(--primary-shade);
+}
+.lodding{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  color: rgb(52, 52, 52);
+}
+@media screen and (max-width: 768px0){
+  .flex{
+    flex-direction: column;
+    overflow: hidden;
+  }
 }

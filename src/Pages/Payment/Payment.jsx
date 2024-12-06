@@ -5,7 +5,10 @@ import { DataContext } from '../../components/DataProvider/DataProvider'
 import ProdutCard from '../../components/Product/ProductCard'
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 import CurrencyFormat from '../../components/CurrencyFormat/CurrenceyFormat'
-// import { colors } from '@mui/material'
+import { axiosInstance } from '../../Api/axios'
+import { ClipLoader } from 'react-spinners'
+import { db } from '../../Utillty/firebase'
+import { useNavigate } from 'react-router-dom'
 
 function Payment() {
   const [{ user, basket }] = useContext(DataContext);
@@ -16,15 +19,55 @@ function Payment() {
   const [cardError, setCardError] = useState("")
   const stripe = useStripe();
   const elements = useElements();
+  const navigate = useNavigate();
 
-  const total = basket.reduce((amount, item) => {
-    return item.price * item.amount + amount
-  }, 0)
+  const total = basket?.reduce((amount, item) => {
+    return item.price * item.amount + amount;
+  }, 0);
+
+  const [prossening, setProssening] = useState(false)
 
   const handleChange = (e) => {
-    console.log(e);
+    // console.log(e);
     e?.error?.message ? setCardError(e?.error?.message) : setCardError('');
   };
+
+
+  const handlePayment = async (e) => {
+    e.preventDefault();
+    try {
+      setProssening(true);
+      const response = await axiosInstance({
+        method: "post",
+        url: `/payment/create?total=${total * 100}`,
+      });
+
+      const clientSecret = response.data?.clientSecret;
+      const { paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: elements.getElement(CardElement),
+        },
+      });
+
+      await db
+        .collection("users")
+        .doc(user.uid)
+        .collection("orders")
+        .doc(paymentIntent.id)
+        .set({
+          basket: basket,
+          amount: paymentIntent.amount,
+          created: paymentIntent.created,
+        });
+
+      setProssening(false);
+      navigate('/orders', { state: { msg: "you have placed new Orders" } })
+    } catch (error) {
+      console.error(error);
+      setProssening(false);
+    }
+  };
+
 
   return (
     <LayOut>
@@ -61,7 +104,7 @@ function Payment() {
           <h3>Payment method</h3>
           <div className={classes.Payment_card_container}>
             <div className={classes.payment_details}>
-              <form action="">
+              <form onSubmit={handlePayment}>
                 {
                   cardError && <small style={{ color: 'red' }}>{cardError}</small>
                 }
@@ -70,7 +113,18 @@ function Payment() {
                   <div>
                     <span style={{ display: "flex", gap: "10px" }}> <p>Total Order | </p> <CurrencyFormat amount={total} /> </span>
                   </div>
-                  <button>Pay Now</button>
+                  <button type='submit'>
+
+                    {
+                      prossening ? (
+                        <div className={classes.lodding}>
+                          <ClipLoader color="#000" size={15} />
+                          <p>Please Wait </p>
+                        </div>
+                      ) : "Pay Now"
+                    }
+
+                  </button>
                 </div>
               </form>
             </div>

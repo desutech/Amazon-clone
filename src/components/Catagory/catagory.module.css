@@ -4,7 +4,7 @@
   background-color: #fff;
   box-shadow: 0 0 10px #00000033;
   cursor: pointer;
- 
+ overflow: hidden;
 }
 .catagory img{
   width: 200px;
@@ -36,7 +36,10 @@
   position: relative;
   margin-top: -220px;
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  max-width: 2000px;
   place-items: center;
+ overflow: hidden;
+ gap: 50px;
   z-index: 10;
 }

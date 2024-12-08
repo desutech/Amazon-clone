@@ -7,6 +7,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  overflow: hidden;
 }
 .header_container{
   background-color:#036444;
@@ -16,7 +17,7 @@
   color: white;
   height: 48px;
   cursor: pointer;
-  /* width: 100%; */
+  width: 100%;
 }
 .logo_container{
   display: flex;
@@ -271,4 +272,5 @@ outline: 0.8px solid #fff;
   .language{
     display: none;
   }
+  
 }

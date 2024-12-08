@@ -6,7 +6,7 @@
   color: black;
   text-decoration: none;
   position: relative;
-  overflow-y: hidden;
+  overflow: hidden;
   cursor: pointer;
 }
 .card_container:hover .button{
@@ -64,7 +64,8 @@ display: none;
   box-shadow: none;
   display: flex;
   gap: 50px;
-  width: 700%;
+  width: 100%;
+  overflow: hidden;
 }
 .product_flexd h3{
   padding: 10px 0;

@@ -1,0 +1,22 @@
+.conrtainer{
+  background-color: #efeeee;
+  padding: 30px;
+overflow: hidden;
+}
+.order_container{
+  background-color: #fff;
+  padding: 20px;
+}
+.order_container h2{
+  border-bottom: 2px solid var(--primary-shade);
+  padding: 20px;
+}
+.order_container p{
+  padding: 12px;
+}
+.order_container img{
+  width: 100px;
+}
+.order_container div{
+  height: auto !important;
+}

@@ -48,6 +48,7 @@ const header = () => {
               <input type="text" id='' name='' placeholder='search product' />
               < SearchIcon className={classes.searchIcon} />
             </div>
+
             <div className={classes.order_container}>
               <div className={classes.order}>
                 <div className={classes.flag_en}>
@@ -94,6 +95,7 @@ const header = () => {
 
               </div>
             </div>
+
           </div>
 
         </section>

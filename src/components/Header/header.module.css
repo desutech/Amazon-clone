@@ -112,8 +112,6 @@ height: auto;
 .flag_en{
   display: flex;
   align-items: center;
-  /* padding: 0.5px; */
-  margin-right: 5px;
 }
 .flag_en:hover{
   outline: 1px solid #fff;
@@ -121,14 +119,17 @@ height: auto;
 .order_container{
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   flex-basis: 28%;
-  width: 70px;
+  width: 60px;
+justify-content: space-between;
+align-items: center;
+
 }
+
 .order_container a{
   text-decoration: none;
   color: white;
-
 }
 .order_container p{
   font-size: 10px;
@@ -136,6 +137,7 @@ height: auto;
 .order{
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .language{
   width:45px;
@@ -152,7 +154,7 @@ height: auto;
 }
 .acount{
   display: flex;
-  width: 110px;
+  width: 105px;
 }
 .en{
   padding-right: 2px;
@@ -162,7 +164,9 @@ height: auto;
 .sign_acount{
   display: flex;
   flex-direction: column;
-  padding: 3px;
+  /* padding: 3px; */
+  min-width: 50px;
+  justify-content: center;
 }
 .sign_acount p{
   font-size: 10px;
@@ -186,6 +190,7 @@ font-weight: bold;
   flex-direction: column;
 /* padding-right: 15px; */
   padding: 5px;
+  min-width: 70px;
 }
 .returns_orders p{
   font-size: 10.5px;
@@ -202,6 +207,7 @@ font-weight: bold;
 padding: 5px;
 position: relative;
 margin-left: 4px;
+/* margin-right: 1000px; */
 display: flex;
  }
  .cart p{
@@ -270,6 +276,12 @@ outline: 0.8px solid #fff;
     display: none;
   }
   .language{
+    display: none;
+  }
+  .en{
+    display: none;
+  }
+  .en_icon{
     display: none;
   }
   
